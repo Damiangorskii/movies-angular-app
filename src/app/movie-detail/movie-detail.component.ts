@@ -9,7 +9,7 @@ import { MatChipsModule } from '@angular/material/chips';
 @Component({
   selector: 'app-movie-detail',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatListModule, MatChipsModule],
+  imports: [CommonModule,  MatCardModule, MatListModule, MatChipsModule],
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.css']
 })
