@@ -5,15 +5,19 @@ import { importProvidersFrom } from '@angular/core';
 import { AppComponent } from './app/app.component';
 import { MovieListComponent } from './app/movie-list/movie-list.component';
 import { HomeComponent } from './app/home/home.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MovieDetailComponent } from './app/movie-detail/movie-detail.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'movies', component: MovieListComponent },
+  { path: 'movies/:id', component: MovieDetailComponent },
 ];
 
 bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(HttpClientModule),
-    importProvidersFrom(RouterModule.forRoot(routes)),
+    importProvidersFrom(RouterModule.forRoot(routes)), provideAnimationsAsync(),
   ]
 }).catch(err => console.error(err));

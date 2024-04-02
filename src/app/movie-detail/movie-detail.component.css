@@ -1,0 +1,26 @@
+.movie-detail-card {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #424242;
+    color: #ececec;
+  }
+  
+  .movie-detail-image {
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .mat-card-title, .mat-card-subtitle {
+    color: #fff;
+  }
+  
+  mat-list-item {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  mat-chip {
+    margin-right: 5px;
+  }
+  

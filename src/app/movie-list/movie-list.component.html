@@ -1,8 +1,14 @@
-<div *ngFor="let movie of movies">
-    <h2>{{ movie.title }}</h2>
-    <p>Director: {{ movie.director }}</p>
-    <p>Release Year: {{ movie.releaseYear }}</p>
-    <p>Genre: {{ movie.genre }}</p>
-    <img src="{{ movie.posterImage }}" alt="{{movie.title}}" width="500" height="600">
-  </div>
-  
+<div class="movie-container">
+  <mat-card *ngFor="let movie of movies" class="movie-card">
+    <div mat-card-avatar class="movie-avatar">
+      <img src="{{movie.posterImage}}" alt="{{ movie.title }}">
+    </div>
+    <mat-card-content>
+      <mat-card-title>{{ movie.title }}</mat-card-title>
+      <p><strong>Director:</strong> {{ movie.director }}</p>
+      <p><strong>Release Year:</strong> {{ movie.releaseYear }}</p>
+      <p><strong>Genre:</strong> {{ movie.genre }}</p>
+      <button (click)="navigateToDetail(movie._id)">View Details</button>
+    </mat-card-content>
+  </mat-card>
+</div>
