@@ -27,4 +27,6 @@
       <mat-list-item>Awards: {{ movie.awards }}</mat-list-item>
     </mat-list>
   </mat-card-content>
+  <button (click)="editMovie()">Edit</button>
+  <button mat-button color="warn" (click)="deleteMovie()">Delete Movie</button>
 </mat-card>

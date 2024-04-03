@@ -38,4 +38,16 @@ export class MovieService {
   getMovieById(id: string): Observable<ApiResponse<Movie>> {
     return this.http.get<ApiResponse<Movie>>(`${this.apiUrl}/${id}`);
   }
+
+  addMovie(movieData: Omit<Movie, '_id'>): Observable<ApiResponse<Movie>> {
+    return this.http.post<ApiResponse<Movie>>(this.apiUrl, movieData);
+  }
+
+  updateMovie(movieId: string, movieData: Omit<Movie, '_id'>): Observable<ApiResponse<Movie>> {
+    return this.http.put<ApiResponse<Movie>>(`${this.apiUrl}/${movieId}`, movieData);
+  }
+
+  deleteMovie(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

@@ -1,1 +1,66 @@
-<p>add-movie works!</p>
+<mat-card>
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Director</mat-label>
+        <input matInput formControlName="director" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Genre</mat-label>
+        <input matInput formControlName="genre" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>releaseYear</mat-label>
+        <input matInput formControlName="releaseYear" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Runtime</mat-label>
+        <input matInput formControlName="runtime" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Cast (comma separated)</mat-label>
+        <textarea matInput formControlName="cast" required></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Rating</mat-label>
+        <input matInput formControlName="rating" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Box office</mat-label>
+        <input matInput formControlName="boxOffice" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Language</mat-label>
+        <input matInput formControlName="language" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Country</mat-label>
+        <input matInput formControlName="country" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Awards (comma separated)</mat-label>
+        <textarea matInput formControlName="awards"></textarea>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Poster Image URL</mat-label>
+        <input matInput formControlName="posterImage">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="!movieForm.valid">Add Movie</button>
+    </form>
+  </mat-card>
+  
