@@ -6,16 +6,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
 import { Router } from '@angular/router';
+import { EditMovieComponent } from '../edit-movie/edit-movie.component';
 
 @Component({
   selector: 'app-movie-detail',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatListModule, MatChipsModule],
+  imports: [CommonModule, MatCardModule, MatListModule, MatChipsModule, EditMovieComponent],
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.css']
 })
 export class MovieDetailComponent implements OnInit {
   movie!: Movie;
+  editing: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +42,10 @@ export class MovieDetailComponent implements OnInit {
         }
       });
     }
+  }
+
+  onMovieUpdated(updatedMovie: Movie): void {
+    this.movie = updatedMovie;
   }
 
   ngOnInit() {

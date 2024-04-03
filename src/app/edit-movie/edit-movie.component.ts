@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MovieService, Movie } from '../movie.service';
@@ -16,6 +16,8 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./edit-movie.component.css']
 })
 export class EditMovieComponent implements OnInit {
+  @Input() movie!: Movie;
+  @Output() movieUpdated = new EventEmitter<Movie>();
   editMovieForm: FormGroup;
   movieId!: string;
 
@@ -75,6 +77,7 @@ export class EditMovieComponent implements OnInit {
     if (this.editMovieForm.valid) {
       this.movieService.updateMovie(this.movieId, this.editMovieForm.value).subscribe({
         next: (response) => {
+          this.movieUpdated.emit(response.data);
           this.router.navigate(['/movies', this.movieId]);
         },
         error: (error) => console.error('Error updating movie:', error)

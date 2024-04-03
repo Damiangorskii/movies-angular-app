@@ -1,3 +1,4 @@
+<app-edit-movie *ngIf="editing" [movie]="movie" (movieUpdated)="onMovieUpdated($event)"></app-edit-movie>
 <mat-card *ngIf="movie" class="movie-detail-card">
   <img
     mat-card-image
