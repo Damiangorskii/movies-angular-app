@@ -1,32 +1,30 @@
 <mat-card *ngIf="movie" class="movie-detail-card">
+  <img
+    mat-card-image
+    *ngIf="movie.posterImage"
+    src="{{ movie.posterImage }}"
+    alt="Poster of {{ movie.title }}"
+    class="movie-detail-image"
+  />
   <mat-card-header>
-    <div mat-card-avatar class="movie-detail-image" *ngIf="movie.posterImage">
-      <img
-        mat-card-image
-        src="{{ movie.posterImage }}"
-        alt="Poster of {{ movie.title }}"
-      />
-    </div>
     <mat-card-title>{{ movie.title }}</mat-card-title>
     <mat-card-subtitle>{{ movie.director }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <mat-list>
-      <mat-list-item>Release Year: {{ movie.releaseYear }}</mat-list-item>
-      <mat-list-item>Runtime: {{ movie.runtime }} minutes</mat-list-item>
-      <mat-list-item>
-        Cast:
-        <mat-chip-listbox>
-          <mat-chip-option *ngFor="let actor of movie.cast">{{ actor }}</mat-chip-option>
-        </mat-chip-listbox>        
-      </mat-list-item>
-      <mat-list-item>Rating: {{ movie.rating }}</mat-list-item>
-      <mat-list-item>Box Office: ${{ movie.boxOffice }}</mat-list-item>
-      <mat-list-item>Language: {{ movie.language }}</mat-list-item>
-      <mat-list-item>Country: {{ movie.country }}</mat-list-item>
-      <mat-list-item>Awards: {{ movie.awards }}</mat-list-item>
-    </mat-list>
+    <p><strong>Genre:</strong> {{ movie.genre }}</p>
+    <p><strong>Release Year:</strong> {{ movie.releaseYear }}</p>
+    <p><strong>Runtime:</strong> {{ movie.runtime }} minutes</p>
+    <p><strong>Cast:</strong> {{ movie.cast }}</p>
+    <p><strong>Rating:</strong> {{ movie.rating }}</p>
+    <p><strong>Box Office:</strong> ${{ movie.boxOffice | number }}</p>
+    <p><strong>Language:</strong> {{ movie.language }}</p>
+    <p><strong>Country:</strong> {{ movie.country }}</p>
+    <p><strong>Awards:</strong> {{ movie.awards }}</p>
   </mat-card-content>
-  <button (click)="editMovie()">Edit</button>
-  <button mat-button color="warn" (click)="deleteMovie()">Delete Movie</button>
+  <mat-card-actions>
+    <button mat-button color="primary" (click)="editMovie()">Edit</button>
+    <button mat-button color="warn" (click)="deleteMovie()">
+      Delete Movie
+    </button>
+  </mat-card-actions>
 </mat-card>
