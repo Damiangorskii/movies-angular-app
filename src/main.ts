@@ -10,6 +10,7 @@ import { MovieDetailComponent } from './app/movie-detail/movie-detail.component'
 import { AddMovieComponent } from './app/add-movie/add-movie.component';
 import { EditMovieComponent } from './app/edit-movie/edit-movie.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -22,6 +23,6 @@ const routes: Routes = [
 bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(HttpClientModule),
-    importProvidersFrom(RouterModule.forRoot(routes)), provideAnimationsAsync(),
+    importProvidersFrom(RouterModule.forRoot(routes)), provideAnimationsAsync()
   ]
 }).catch(err => console.error(err));

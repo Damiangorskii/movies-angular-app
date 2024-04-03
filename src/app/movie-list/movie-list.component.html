@@ -1,14 +1,29 @@
 <div class="movie-container">
-  <mat-card *ngFor="let movie of movies" class="movie-card">
+  <mat-card *ngFor="let movie of movies" class="movie-card" @fadeIn>
     <div class="movie-avatar">
-      <img mat-card-image src="{{movie.posterImage}}" alt="{{ movie.title }}">
+      <img
+        mat-card-image
+        src="{{ movie.posterImage }}"
+        alt="{{ movie.title }}"
+      />
     </div>
     <mat-card-content>
       <mat-card-title>{{ movie.title }}</mat-card-title>
       <p><strong>Director:</strong> {{ movie.director }}</p>
       <p><strong>Release Year:</strong> {{ movie.releaseYear }}</p>
       <p><strong>Genre:</strong> {{ movie.genre }}</p>
-      <button mat-raised-button color="primary" (click)="navigateToDetail(movie._id)">View Details</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="navigateToDetail(movie._id)"
+        (mouseover)="buttonState = 'hover'"
+        (mouseout)="buttonState = 'default'"
+        (mousedown)="buttonState = 'active'"
+        (mouseup)="buttonState = 'hover'"
+        [@buttonState]="buttonState"
+      >
+        View Details
+      </button>
     </mat-card-content>
   </mat-card>
 </div>
